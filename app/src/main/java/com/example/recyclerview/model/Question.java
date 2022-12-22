@@ -8,7 +8,6 @@ public class Question {
     private String option1;
     private String option2;
     private String option3;
-    private String option4;
     private int imgQuestion;
     private int answer;
     private int categoryID;
@@ -20,7 +19,6 @@ public class Question {
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
-        //this.option4 = option4;
         this.answer = answer;
         this.categoryID = categoryID;
         this.imgQuestion = imgQuestion;
@@ -78,8 +76,22 @@ public class Question {
         return categoryID;
     }
 
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", option1='" + option1 + '\'' +
+                ", option2='" + option2 + '\'' +
+                ", option3='" + option3 + '\'' +
+                ", imgQuestion=" + imgQuestion +
+                ", answer=" + answer +
+                ", categoryID=" + categoryID +
+                '}';
+    }
+
     public int getImgQuestion() {
-        return imgQuestion;
+        return this.imgQuestion;
     }
 
     public void setImgQuestion(int imgQuestion) {

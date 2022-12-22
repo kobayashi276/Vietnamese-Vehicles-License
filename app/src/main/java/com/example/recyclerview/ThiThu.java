@@ -43,7 +43,7 @@ public class ThiThu extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private ArrayList<Question> questionList;
     private long timeLeftInMillis;
-    private int questionCounter;
+    private int questionCounter=0;
     private int questionSize;
 
     private boolean answer;
@@ -63,13 +63,13 @@ public class ThiThu extends AppCompatActivity {
         getID();
         Intent intent = getIntent();
         int categoryID = intent.getIntExtra("idcategories",0);
-
+        System.out.println("cate: " + categoryID);
         Database database = new Database(this);
         questionList = database.getQuestions(categoryID);
         questionSize = 10;
 
         Collections.shuffle(questionList);
-
+        System.out.println(questionList.size());
         showNextQuestion();
 
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +116,8 @@ public class ThiThu extends AppCompatActivity {
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());
-            if (currentQuestion.getImgQuestion()!=0) imgQuestion.setImageResource(pics[1]);
+            System.out.println(currentQuestion.toString());
+            if (currentQuestion.getImgQuestion()!=0) imgQuestion.setImageResource(pics[currentQuestion.getImgQuestion()-1]);
             questionCounter++;
             questionCount.setText("Câu "+questionCounter+"/"+questionSize);
             answer = false;
@@ -172,7 +173,9 @@ public class ThiThu extends AppCompatActivity {
         rb3.setEnabled(false);
         answer = true;
         RadioButton rbSelected = findViewById(rbgroup.getCheckedRadioButtonId());
-        int answerSelected = rbgroup.indexOfChild(rbSelected)+1;
+        int answerSelected = rbgroup.indexOfChild(rbSelected)-1;
+//        if (answerSelected == 4) answerSelected = 1;
+        System.out.println(answerSelected + " " + currentQuestion.getAnswer() + " " + correctAnswer);
         if (answerSelected == currentQuestion.getAnswer()){
             correctAnswer++;
         }

@@ -45,10 +45,11 @@ public class Database extends SQLiteOpenHelper {
                 Table.QuestionTable.COLUMN_OPTION4 + " TEXT, " +
                 Table.QuestionTable.COLUMN_ANSWER + " INTEGER, " +
                 Table.QuestionTable.COLUMN_CATEGORY_ID + " INTEGER, " +
+                Table.QuestionTable.COLUMN_IMAGE_QUESTION + " INTEGER, " +
                 "FOREIGN KEY(" + Table.QuestionTable.COLUMN_CATEGORY_ID + ") REFERENCES " +
                 Table.CategoriesTable.TABLE_NAME + "(" + Table.CategoriesTable._ID + ")" + "ON DELETE CASCADE" +
                 ")";
-
+        System.out.println(QUESTIONS_TABLE);
         db.execSQL(CATEGORIES_TABLE);
         db.execSQL(QUESTIONS_TABLE);
 
@@ -89,6 +90,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(Table.QuestionTable.COLUMN_OPTION3,question.getOption3());
         values.put(Table.QuestionTable.COLUMN_ANSWER,question.getAnswer());
         values.put(Table.QuestionTable.COLUMN_CATEGORY_ID,question.getCategoryID());
+        values.put(Table.QuestionTable.COLUMN_IMAGE_QUESTION,question.getImgQuestion());
         db.insert(Table.QuestionTable.TABLE_NAME,null,values);
     }
 
@@ -299,17 +301,17 @@ public class Database extends SQLiteOpenHelper {
                 "A. 1.", "B. 2", "C.  3", 1, 2,21);
         insertQuestions(q51);
 
-        Question q52 = new Question("",
-                "A. 1.", "B. 2", "C.  3", 2, 2,22);
-        insertQuestions(q52);
+//        Question q52 = new Question("",
+//                "A. 1.", "B. 2", "C.  3", 2, 2,22);
+//        insertQuestions(q52);
 
-        Question q53 = new Question("",
-                "A. 1.", "B. 2", "C.  3", 2, 2,23);
-        insertQuestions(q53);
-
-        Question q54 = new Question("",
-                "A. 1.", "B. 2", "C.  3", 2, 2,24);
-        insertQuestions(q54);
+//        Question q53 = new Question("",
+//                "A. 1.", "B. 2", "C.  3", 2, 2,23);
+//        insertQuestions(q53);
+//
+//        Question q54 = new Question("",
+//                "A. 1.", "B. 2", "C.  3", 2, 2,24);
+//        insertQuestions(q54);
 
 
     }
@@ -349,6 +351,7 @@ public class Database extends SQLiteOpenHelper {
                 question.setOption3(c.getString(c.getColumnIndex(Table.QuestionTable.COLUMN_OPTION3)));
                 question.setAnswer(c.getInt(c.getColumnIndex(Table.QuestionTable.COLUMN_ANSWER)));
                 question.setCategoryID(c.getInt(c.getColumnIndex(Table.QuestionTable.COLUMN_CATEGORY_ID)));
+                question.setImgQuestion(c.getInt(c.getColumnIndex(Table.QuestionTable.COLUMN_IMAGE_QUESTION)));
                 questionArrayList.add(question);
 
 

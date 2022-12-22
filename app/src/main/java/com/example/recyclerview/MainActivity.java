@@ -10,17 +10,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView rvPerson;
-    ArrayList<person_class> listPerson;
-    PersonAdapter adapter;
+    ArrayList<menu_class> listPerson;
+    MenuAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rvPerson = findViewById(R.id.rvPerson);
-        listPerson = person_class.init();
+        listPerson = menu_class.init();
         rvPerson.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new PersonAdapter(this,listPerson);
+        adapter = new MenuAdapter(this,listPerson);
         rvPerson.setAdapter(adapter);
     }
 }

@@ -18,5 +18,6 @@ public class Table {
             public static final String COLUMN_OPTION4 = "option4";
             public static final String COLUMN_ANSWER = "answer";
             public static final String COLUMN_CATEGORY_ID = "id_categories";
+            public static final String COLUMN_IMAGE_QUESTION = "img_question";
         }
 }

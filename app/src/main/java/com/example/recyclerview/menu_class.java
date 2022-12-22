@@ -2,7 +2,7 @@ package com.example.recyclerview;
 
 import java.util.ArrayList;
 
-public class person_class
+public class menu_class
 {
     private String fullname;
     private int Pic;
@@ -23,17 +23,17 @@ public class person_class
         return this.fullname;
     }
 
-    public static ArrayList<person_class> init(){
-        String[] name = {"Lí thuyết","Câu hỏi liệt"};
-        int[] pics = {R.drawable.gplx,R.drawable.liet};
-        person_class p;
-        ArrayList<person_class> listPerson = new ArrayList<>();
+    public static ArrayList<menu_class> init(){
+        String[] name = {"Lí thuyết","Biển báo","Câu hỏi liệt"};
+        int[] pics = {R.drawable.gplx,R.drawable.bienbao,R.drawable.liet};
+        menu_class p;
+        ArrayList<menu_class> listMenu = new ArrayList<>();
         for (int i = 0;i< name.length;i++){
-            p = new person_class();
+            p = new menu_class();
             p.setPic(pics[i]);
             p.setFullname(name[i]);
-            listPerson.add(p);
+            listMenu.add(p);
         }
-        return listPerson;
+        return listMenu;
     }
 }

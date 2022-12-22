@@ -7,23 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.recyclerview.model.Database;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder> {
-    private ArrayList<person_class> listPerson;
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
+    private ArrayList<menu_class> listPerson;
     private Context mContext;
 
-    public PersonAdapter(Context context, ArrayList<person_class> listPerson){
+    public MenuAdapter(Context context, ArrayList<menu_class> listPerson){
         this.mContext = context;
         this.listPerson = listPerson;
     }
@@ -38,7 +33,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position){
-        person_class p = listPerson.get(position);
+        menu_class p = listPerson.get(position);
         if (p==null){
             return;
         }
