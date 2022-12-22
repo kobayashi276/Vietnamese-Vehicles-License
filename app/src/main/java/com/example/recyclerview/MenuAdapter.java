@@ -53,6 +53,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
                 }else if (p.getFullname()=="Câu hỏi liệt") {
                     values = 3;
                 }
+                else if (p.getFullname()=="Thi thử"){
+                    values = 4;
+                }
 
                 Intent intent = new Intent(view.getContext(),ThiThu.class);
                 intent.putExtra("idcategories",values);
@@ -60,7 +63,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
                 mContext.startActivity(intent);
             }
         });
-        //holder.rvPhone.setText(p.getPhone());
     }
 
     @Override
@@ -74,14 +76,12 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        CardView layout_item;
-        ImageView rvPic, rvCall, rvChat;
-        TextView rvFullName, rvPhone;
+        ImageView rvPic;
+        TextView rvFullName;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             rvPic = itemView.findViewById(R.id.product_image);
             rvFullName = itemView.findViewById(R.id.product_title);
-            //rvPhone = itemView.findViewById(R.id.product_price);
 
         };
     }

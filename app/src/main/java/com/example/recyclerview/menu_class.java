@@ -24,8 +24,8 @@ public class menu_class
     }
 
     public static ArrayList<menu_class> init(){
-        String[] name = {"Lí thuyết","Biển báo","Câu hỏi liệt"};
-        int[] pics = {R.drawable.gplx,R.drawable.bienbao,R.drawable.liet};
+        String[] name = {"Lí thuyết","Biển báo","Câu hỏi liệt","Thi thử"};
+        int[] pics = {R.drawable.gplx,R.drawable.bienbao,R.drawable.liet,R.drawable.gplx};
         menu_class p;
         ArrayList<menu_class> listMenu = new ArrayList<>();
         for (int i = 0;i< name.length;i++){

@@ -64,11 +64,38 @@ public class ThiThu extends AppCompatActivity {
         Intent intent = getIntent();
         int categoryID = intent.getIntExtra("idcategories",0);
         System.out.println("cate: " + categoryID);
-        Database database = new Database(this);
-        questionList = database.getQuestions(categoryID);
-        questionSize = 10;
 
-        Collections.shuffle(questionList);
+        Database database = new Database(this);
+        if (categoryID==4){
+            questionList = new ArrayList<>();
+            ArrayList<Question> questionsListTemp = database.getQuestions(1);
+            System.out.println(questionsListTemp.size());
+            Collections.shuffle(questionsListTemp);
+            for (int i=0;i<10;i++){
+                questionList.add(questionsListTemp.get(i));
+            }
+
+            questionsListTemp = database.getQuestions(3);
+            Collections.shuffle(questionsListTemp);
+            for (int i=0;i<3;i++){
+                questionList.add(questionsListTemp.get(i));
+            }
+
+            Collections.shuffle(questionList);
+
+            questionsListTemp = database.getQuestions(2);
+            Collections.shuffle(questionsListTemp);
+            for (int i=0;i<12;i++){
+                questionList.add(questionsListTemp.get(i));
+            }
+            questionSize = 25;
+        }
+        else{
+            questionList = database.getQuestions(categoryID);
+            questionSize = 10;
+            Collections.shuffle(questionList);
+        }
+
         System.out.println(questionList.size());
         showNextQuestion();
 
@@ -174,7 +201,6 @@ public class ThiThu extends AppCompatActivity {
         answer = true;
         RadioButton rbSelected = findViewById(rbgroup.getCheckedRadioButtonId());
         int answerSelected = rbgroup.indexOfChild(rbSelected)-1;
-//        if (answerSelected == 4) answerSelected = 1;
         System.out.println(answerSelected + " " + currentQuestion.getAnswer() + " " + correctAnswer);
         if (answerSelected == currentQuestion.getAnswer()){
             correctAnswer++;
@@ -213,7 +239,7 @@ public class ThiThu extends AppCompatActivity {
     private void showResult(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Hoàn Thành");
-        alert.setMessage("Bạn đã đúng "+correctAnswer+"/10 câu");
+        alert.setMessage("Bạn đã đúng "+correctAnswer+"/" + questionSize + " câu");
         alert.setCancelable(false);
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
