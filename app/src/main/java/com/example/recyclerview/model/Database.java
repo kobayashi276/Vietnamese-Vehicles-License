@@ -68,19 +68,21 @@ public class Database extends SQLiteOpenHelper {
         Category cat1 = new Category("Lí thuyết");
         Category cat2 = new Category("Liệt");
         Category cat3 = new Category("Biển Báo");
-        Category cat4 = new Category("Tình huống");
+//      Category cat4 = new Category("Tình huống");
         insertCategories(cat1);
         insertCategories(cat2);
         insertCategories(cat3);
-        insertCategories(cat4);
+//      insertCategories(cat4);
     }
 
+    //Thêm dữ liệu vào Cate
     private void insertCategories(Category cat){
         ContentValues values = new ContentValues();
         values.put(Table.CategoriesTable.COLUMN_NAME, cat.getName());
         db.insert(Table.CategoriesTable.TABLE_NAME,null,values);
     }
 
+    //Thêm dữ liệu vào Question
     private void insertQuestions(Question question){
         ContentValues values = new ContentValues();
 
@@ -316,6 +318,7 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
+    //Lấy toàn bộ dữ liệu từ bảng Cate ra
     @SuppressLint("Range")
     public List<Category> getDataCategories(){
         List<Category> categoryList = new ArrayList<>();
@@ -334,6 +337,7 @@ public class Database extends SQLiteOpenHelper {
         return categoryList;
     }
 
+    //Lấy toàn bộ dữ liệu từ bảng Question ra
     @SuppressLint("Range")
     public ArrayList<Question> getQuestions(int categoryID){
         ArrayList<Question> questionArrayList = new ArrayList<>();

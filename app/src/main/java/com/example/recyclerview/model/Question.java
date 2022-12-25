@@ -2,6 +2,7 @@ package com.example.recyclerview.model;
 
 import android.widget.ImageView;
 
+//Lưu thông tin câu hỏi - Khai báo construct
 public class Question {
     private int id;
     private String question;

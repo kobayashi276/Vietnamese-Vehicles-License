@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//Xử lí thao tác người dùng trên giao diện trong sự kiện Activity - Intent
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     private ArrayList<menu_class> listPerson;
     private Context mContext;

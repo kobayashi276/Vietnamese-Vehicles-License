@@ -2,6 +2,7 @@ package com.example.recyclerview;
 
 import java.util.ArrayList;
 
+//Hiển thị giao diện
 public class menu_class
 {
     private String fullname;

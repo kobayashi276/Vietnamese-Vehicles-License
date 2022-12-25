@@ -2,6 +2,7 @@ package com.example.recyclerview;
 
 import android.provider.BaseColumns;
 
+//Khai báo Table
 public class Table {
     private Table(){}
         public static class CategoriesTable implements BaseColumns {

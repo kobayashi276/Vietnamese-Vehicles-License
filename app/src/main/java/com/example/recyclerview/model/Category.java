@@ -1,5 +1,6 @@
 package com.example.recyclerview.model;
 
+//Tạo model Cate lưu vào database
 public class Category {
     private int id;
     private String name;

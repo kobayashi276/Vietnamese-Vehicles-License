@@ -36,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/question"
-            android:layout_centerVertical="true">
+            android:layout_centerVertical="true"
+            android:layout_marginTop="17dp">
 
             <TextView
                 android:id="@+id/countdown"
@@ -79,14 +80,15 @@
                 android:textColor="@color/black" />
 
         </RadioGroup>
+
         <Button
+            android:id="@+id/confirm_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/radiogroup"
-            android:text="Xác nhận"
-            android:id="@+id/confirm_button"
+            android:layout_marginTop="40dp"
             android:freezesText="true"
-            android:layout_marginTop="16dp"/>
+            android:text="Xác nhận" />
     </RelativeLayout>
 
 

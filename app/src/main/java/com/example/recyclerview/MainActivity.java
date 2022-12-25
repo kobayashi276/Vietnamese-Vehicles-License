@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<menu_class> listPerson;
     MenuAdapter adapter;
 
+    //Khởi tạo giao diện
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
